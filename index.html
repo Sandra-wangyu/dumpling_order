@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美水餃 - 線上訂購</title>
+    <title>美水餃 - Delicious Dumplings</title>
     <style>
         * {
             margin: 0;
@@ -12,289 +12,593 @@
         }
 
         body {
-            font-family: 'Arial', '微軟正黑體', sans-serif;
+            font-family: 'Helvetica Neue', 'Arial', '微軟正黑體', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8f9fa;
+            background: #f8f8f8;
         }
 
-        /* 導航欄 */
+        /* 頂部導航 */
+        .top-nav {
+            text-align: center;
+            padding: 12px 0;
+            background: #ff4500;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* 主導航 */
         .navbar {
             background: white;
             padding: 20px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 30px;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-
-        .nav-links {
             display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
+            align-items: center;
+            gap: 15px;
+            font-size: 24px;
+            font-weight: 700;
             color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
-
-        /* 主要內容容器 */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* 英雄卡片 */
-        .hero-card {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            border-radius: 20px;
-            padding: 0;
-            margin-bottom: 40px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.3);
-            position: relative;
-            min-height: 500px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 500px;
-        }
-
-        .hero-text {
-            padding: 60px;
-            color: white;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        .hero-button {
-            background: white;
-            color: #e74c3c;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
             text-decoration: none;
-            display: inline-block;
         }
 
-        .hero-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .hero-image {
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-image-placeholder {
-            font-size: 10rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .image-hint {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-        }
-
-        /* 卡片網格 */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        /* 產品卡片 */
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .card-subtitle {
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .features-list li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1rem;
-        }
-
-        .features-list li::before {
-            content: "✓";
-            background: #27ae60;
-            color: white;
-            width: 20px;
-            height: 20px;
+        .logo-badge {
+            width: 50px;
+            height: 50px;
+            background: #ff4500;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .spec-highlight {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #e74c3c;
-            margin-top: 20px;
-        }
-
-        .spec-highlight strong {
-            color: #e74c3c;
-            font-size: 1.1rem;
-        }
-
-        /* 特色卡片 */
-        .features-card {
-            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: #ff4500;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* 主視覺區域 - 橘紅風格 */
+        .hero-section {
+            background: linear-gradient(135deg, #ff4500 0%, #ff6b35 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge::before,
+        .hero-badge::after {
+            content: 'LOGO';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff4500;
+            border-radius: 50%;
+            color: white;
+            font-size: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-badge::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .hero-badge::after {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .hero-main-text {
+            font-size: 80px;
+            font-weight: 900;
+            color: #333;
+            line-height: 1;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #ff4500;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .hero-image-hint {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        /* 產品專區 */
+        .products-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title .en-title {
+            font-size: 14px;
+            color: #ff4500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .product-showcase {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            width: 400px;
+            background: white;
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            border: 3px solid #ff4500;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(255, 69, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ff4500, #ff6b35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-badge {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .product-badge::before,
+        .product-badge::after {
+            content: 'LOGO';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4500;
+            border-radius: 50%;
+            color: white;
+            font-size: 6px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-badge::before {
+            top: 5px;
+            left: 15px;
+        }
+
+        .product-badge::after {
+            bottom: 5px;
+            right: 15px;
+        }
+
+        .product-main-icon {
+            font-size: 32px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .product-note {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .product-info {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .product-en-name {
+            font-size: 16px;
+            color: #ff4500;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #ff4500;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .order-btn {
+            background: #ff4500;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .order-btn:hover {
+            background: #e63e00;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+        }
+
+        /* 品牌故事 */
+        .story-section {
+            padding: 100px 0;
+            background: #f8f8f8;
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #ff4500, #ff6b35);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(255, 69, 0, 0.3);
+        }
+
+        .story-badge {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .story-main-text {
+            font-size: 48px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .story-image-note {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 11px;
+        }
+
+        .story-content {
+            padding-left: 40px;
+        }
+
+        .story-title {
+            font-size: 42px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .story-subtitle {
+            font-size: 18px;
+            color: #ff4500;
+            margin-bottom: 35px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            color: #ff4500;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #e63e00;
+            border-bottom-color: #e63e00;
+        }
+
+        /* 四大特色 */
+        .features-section {
+            padding: 100px 0;
+            background: white;
         }
 
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .feature-item {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
+            background: white;
+            padding: 50px 60px;
+            border-radius: 20px;
+            border: 3px solid #ff4500;
+            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(255, 69, 0, 0.2);
         }
 
         .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .feature-text {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .feature-desc {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* 訂購表單卡片 */
-        .order-card {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            grid-column: 1 / -1;
-            margin-top: 20px;
-        }
-
-        .form-header {
+            font-size: 80px;
+            flex-shrink: 0;
+            width: 120px;
             text-align: center;
-            margin-bottom: 40px;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 訂購表單 */
+        .order-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ff4500 0%, #ff6b35 100%);
+        }
+
+        .order-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 70px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            border: 3px solid white;
         }
 
         .form-title {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: bold;
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .form-subtitle {
-            color: #7f8c8d;
-            font-size: 1.2rem;
+            text-align: center;
+            font-size: 16px;
+            color: #ff4500;
+            margin-bottom: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .form-grid {
+        .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
@@ -305,339 +609,513 @@
             margin-bottom: 25px;
         }
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
+        .form-label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1rem;
+            color: #333;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .required {
-            color: #e74c3c;
+            color: #ff4500;
         }
 
-        input[type="text"], input[type="tel"], input[type="number"] {
+        .form-input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
+            padding: 18px;
+            border: 2px solid #eee;
             border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: #f8f9fa;
+            font-size: 15px;
+            color: #333;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
-        input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
+        .form-input:focus {
             outline: none;
-            border-color: #e74c3c;
+            border-color: #ff4500;
             background: white;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+            box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.1);
         }
 
-        /* 數量選擇區域 */
-        .quantity-card {
-            background: linear-gradient(135deg, #ff6b35, #e55a2b);
-            color: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .quantity-section {
+            background: #f8f8f8;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
             text-align: center;
+            border: 2px solid #ff4500;
         }
 
         .quantity-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: bold;
+            font-size: 22px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
         .quantity-subtitle {
-            margin-bottom: 25px;
-            opacity: 0.9;
+            font-size: 14px;
+            color: #ff4500;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .quantity-controls {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin: 25px 0;
+            gap: 25px;
+            margin: 30px 0;
         }
 
         .quantity-btn {
             width: 50px;
             height: 50px;
-            border: none;
+            border: 3px solid #ff4500;
             background: white;
-            color: #ff6b35;
+            color: #ff4500;
             border-radius: 50%;
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 900;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .quantity-btn:hover {
+            background: #ff4500;
+            color: white;
             transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .quantity-input {
-            width: 80px !important;
+            width: 100px !important;
             text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 700;
+            border: 3px solid #ff4500 !important;
+            border-radius: 10px !important;
             background: white !important;
-            color: #ff6b35;
-            border: 2px solid white !important;
+            color: #333 !important;
         }
 
         .total-display {
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            margin-top: 25px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            color: #333;
+            font-size: 16px;
+            font-weight: 700;
+            border: 2px solid #ff4500;
+            text-transform: uppercase;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            padding: 20px;
+            background: #ff4500;
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 30px;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+            background: #e63e00;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 69, 0, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .success-message {
             display: none;
-            background: linear-gradient(135deg, #27ae60, #229954);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
+            background: #d4edda;
+            border: 2px solid #27ae60;
+            color: #155724;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
             text-align: center;
+        }
+
+        .success-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* 頁尾 */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 70px 0 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer-logo-accent {
+            color: #ff4500;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            line-height: 2;
+            color: #ccc;
+            margin-bottom: 35px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 25px;
+            font-size: 12px;
+            color: #999;
         }
 
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-menu, .nav-icons {
                 display: none;
             }
             
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-text {
-                padding: 40px 30px;
-                order: 2;
-            }
-            
-            .hero-image {
-                height: 300px;
-                order: 1;
-            }
-            
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
             
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .hero-badge {
+                width: 150px;
+                height: 150px;
             }
             
-            .form-grid {
+            .hero-main-text {
+                font-size: 80px;
+            }
+            
+            .story-container {
                 grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .story-content {
+                padding-left: 0;
+                text-align: center;
             }
             
             .features-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 40px 30px;
+            }
+            
+            .feature-icon {
+                font-size: 60px;
+                width: auto;
+            }
+            
+            .form-row {
                 grid-template-columns: 1fr;
+            }
+            
+            .order-form-container {
+                padding: 50px 35px;
+                margin: 0 20px;
             }
             
             .quantity-controls {
                 flex-direction: column;
-                gap: 15px;
-            }
-            
-            .order-card {
-                padding: 30px 20px;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 導航欄 -->
+    <!-- 頂部導航 -->
+    <div class="top-nav">
+        🔥 每日新鮮製作 | 📦 全台配送到府 | ☎️ 客服專線：0800-美味餃 (0800-639-542)
+    </div>
+
+    <!-- 主導航 -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🥟 美水餃</div>
-            <div class="nav-links">
-                <a href="#home">首頁</a>
-                <a href="#product">產品介紹</a>
-                <a href="#order">立即訂購</a>
+            <a href="#" class="logo">
+                <div class="logo-badge">LOGO</div>
+                <span>美水餃</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#features">工藝</a></li>
+                <li><a href="#product">商品</a></li>
+                <li><a href="#order">訂購</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
+            <div class="nav-icons">
+                <span>🔍</span>
+                <span>👤</span>
+                <span>🛒</span>
             </div>
         </div>
     </nav>
 
-    <!-- 主要內容 -->
-    <div class="main-container">
-        <!-- 英雄卡片 -->
-        <div id="home" class="hero-card">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">美水餃<br>手工製作</h1>
-                    <p class="hero-subtitle">傳承三代的家常美味</p>
-                    <p class="hero-description">
-                        嚴選新鮮韭菜與優質豬肉，每一顆水餃都是用心手工包製。
-                        皮薄餡多，一口咬下滿滿的家常溫暖。
-                    </p>
-                    <a href="#order" class="hero-button">立即訂購</a>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-image-placeholder">🥟</div>
-                    <div class="image-hint">
-                        📸 替換為水餃照片<br>
-                        建議尺寸：600x400px
-                    </div>
-                </div>
-            </div>
+    <!-- 主視覺區域 -->
+    <section id="home" class="hero-section">
+        <div class="hero-image-hint">
+            📸 上傳美食照片<br>
+            風格：大膽、現代、美味感
         </div>
-
-        <!-- 卡片網格 -->
-        <div class="cards-grid">
-            <!-- 產品介紹卡片 -->
-            <div id="product" class="product-card">
-                <h2 class="card-title">韭菜豬肉水餃</h2>
-                <p class="card-subtitle">每包40顆，新鮮急凍配送</p>
-                
-                <ul class="features-list">
-                    <li>精選台灣韭菜，香氣濃郁</li>
-                    <li>優質溫體豬肉，口感鮮嫩</li>
-                    <li>手工包製，皮薄餡多</li>
-                    <li>急速冷凍，鎖住新鮮</li>
-                    <li>真空包裝，衛生安全</li>
-                    <li>冷凍保存，隨時享用</li>
-                </ul>
-                
-                <div class="spec-highlight">
-                    <strong>產品規格</strong><br>
-                    40入/包 | 冷凍配送 | 保存期限3個月
-                </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="hero-main-text">LOGO</div>
             </div>
-
-            <!-- 品質特色卡片 -->
-            <div class="features-card">
-                <h2 class="card-title">品質保證</h2>
-                <p class="card-subtitle">堅持最高標準，只為您的滿意</p>
-                
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="feature-icon">🥬</span>
-                        <div class="feature-text">新鮮食材</div>
-                        <div class="feature-desc">當日採購製作</div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">👨‍🍳</span>
-                        <div class="feature-text">手工製作</div>
-                        <div class="feature-desc">傳承三代工藝</div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">❄️</span>
-                        <div class="feature-text">急速冷凍</div>
-                        <div class="feature-desc">鎖住最佳口感</div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🚚</span>
-                        <div class="feature-text">冷鏈配送</div>
-                        <div class="feature-desc">保證新鮮到府</div>
-                    </div>
-                </div>
-            </div>
+            <h1 class="hero-title">美味 DUMPLINGS</h1>
+            <p class="hero-subtitle">皮彈餡鮮　每一顆都很實在美味</p>
+            <p class="hero-description">
+                我們沒有華麗的包裝，只是認真把每一顆水餃做好。<br>
+                用最純粹的美味，創造最難忘的味蕾體驗。
+            </p>
+            <a href="#order" class="hero-cta">立即訂購</a>
         </div>
+    </section>
 
-        <!-- 訂購表單卡片 -->
-        <div id="order" class="order-card">
-            <div class="form-header">
-                <h2 class="form-title">線上訂購</h2>
-                <p class="form-subtitle">填寫資料，美味水餃直送到府</p>
+    <!-- 產品專區 -->
+    <section id="product" class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>招牌商品</h2>
+                <p class="en-title">頂級品質</p>
             </div>
             
-            <form id="orderForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="storeCode">店編 <span class="required">*</span></label>
-                        <input type="text" id="storeCode" name="storeCode" placeholder="請輸入店編" required>
+            <div class="product-showcase">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">
+                            <div class="product-main-icon">LOGO</div>
+                        </div>
+                        <div class="product-note">
+                            美味-dumpling.jpg<br>400x300px
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="storeName">店名 <span class="required">*</span></label>
-                        <input type="text" id="storeName" name="storeName" placeholder="請輸入店名" required>
-                    </div>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="region">區域 <span class="required">*</span></label>
-                    <input type="text" id="region" name="region" placeholder="請輸入區域" required>
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="customerName">訂購人姓名 <span class="required">*</span></label>
-                        <input type="text" id="customerName" name="customerName" placeholder="請輸入真實姓名" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="customerPhone">聯絡電話 <span class="required">*</span></label>
-                        <input type="tel" id="customerPhone" name="customerPhone" placeholder="請輸入手機號碼" required>
+                    <div class="product-info">
+                        <h3 class="product-name">韭菜豬肉水餃</h3>
+                        <p class="product-en-name">豬肉韭菜 Dumplings</p>
+                        <p class="product-price">40顆/包</p>
+                        <p class="product-desc">
+                            精選台灣豬前腿原塊肉，搭配新鮮當令韭菜<br>
+                            手工包製，皮薄餡多<br>
+                            每一口都是誠意十足的美滋味
+                        </p>
+                        <a href="#order" class="order-btn">立即訂購</a>
                     </div>
                 </div>
-
-                <div class="quantity-card">
-                    <h3 class="quantity-title">🥟 選擇訂購數量</h3>
-                    <p class="quantity-subtitle">韭菜豬肉水餃 - 40入/包</p>
-                    <div class="quantity-controls">
-                        <button type="button" class="quantity-btn" id="decreaseBtn">-</button>
-                        <input type="number" id="quantity" name="quantity" class="quantity-input" min="1" value="1" required>
-                        <button type="button" class="quantity-btn" id="increaseBtn">+</button>
-                    </div>
-                    <div class="total-display">
-                        訂購總計：<span id="totalAmount">1</span> 包 (共 <span id="totalPieces">40</span> 顆水餃)
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    🛒 確認訂購 - 立即下單
-                </button>
-            </form>
-
-            <div id="successMessage" class="success-message">
-                <h3>🎉 訂購成功！</h3>
-                <p>感謝您的訂購！我們已收到您的訂單資料，將在24小時內與您聯繫確認配送事宜。</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-container">
+                <div class="story-image">
+                    <div class="story-badge">
+                        <div class="story-main-text">LOGO</div>
+                    </div>
+                    <div class="story-image-note">
+                        品牌故事.jpg<br>大膽現代風格
+                    </div>
+                </div>
+                <div class="story-content">
+                    <h2 class="story-title">用心製作<br>熱情工藝</h2>
+                    <p class="story-subtitle">手工製作的卓越品質</p>
+                    <p class="story-text">
+                        「一口咬下，你會說：欸，這水餃有認真在做。」<br><br>
+                        
+                        我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。從選材、製作到保存流程，皆以實在與透明為原則，呈上一顆「看得見真材實料，吃得出用心」的美水餃。
+                    </p>
+                    <a href="#" class="read-more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大特色 -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>我們的工藝</h2>
+                <p class="en-title">四大原則</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🥩</span>
+                    <h3 class="feature-title">真材實料，誠意十足的實在美</h3>
+                    <p class="feature-description">
+                        我們選用台灣豬前腿原塊肉，拒絕混充來源不明的碎絞肉，確保內餡單一來源；
+                        搭配新鮮當令台灣韭菜，無須過度調味，呈現天然的爽口與香氣，誠意十足的美滋味！
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">👨‍🍳</span>
+                    <h3 class="feature-title">家傳功夫，每個細節的講究美</h3>
+                    <p class="feature-description">
+                        我們反覆測試麵粉比例與風味組合，只為重現記憶中的家常味。
+                        選用兩種以上麵粉調配，打造皮薄不破、Q彈不爛的理想口感；
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">❄️</span>
+                    <h3 class="feature-title">急速凍鮮，鎖住鮮度的安心美</h3>
+                    <p class="feature-description">
+                        採用「-18°C 急速冷凍技術」，包製完成後快速入庫降溫，封存餃子原始的鮮甜與水分，
+                        有效降低冰晶生成，保持皮的彈性與內餡鮮度；與一般手工水餃相比更乾淨衛生、更耐存放、更穩定。
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">🏠</span>
+                    <h3 class="feature-title">回歸家常，食物本質的美味</h3>
+                    <p class="feature-description">
+                        我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。
+                        從選材、製作到保存流程，皆以實在與透明為原則，
+                        呈上一顆「看得見真材實料，吃得出用心」的美水餃。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 訂購表單 -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <div class="order-form-container">
+                <div class="form-header">
+                    <h2 class="form-title">立即訂購</h2>
+                    <p class="form-subtitle">美味 Dumplings</p>
+                </div>
+                
+                <form id="orderForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">店編 <span class="required">*</span></label>
+                            <input type="text" id="storeCode" class="form-input" placeholder="請輸入店編" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">店名 <span class="required">*</span></label>
+                            <input type="text" id="storeName" class="form-input" placeholder="請輸入店名" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">區域 <span class="required">*</span></label>
+                        <input type="text" id="region" class="form-input" placeholder="請輸入區域" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">訂購人姓名 <span class="required">*</span></label>
+                            <input type="text" id="customerName" class="form-input" placeholder="請輸入姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">聯絡電話 <span class="required">*</span></label>
+                            <input type="tel" id="customerPhone" class="form-input" placeholder="請輸入電話" required>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <h3 class="quantity-title">豬肉韭菜 Dumplings</h3>
+                        <p class="quantity-subtitle">40顆/包 | 頂級品質</p>
+                        <div class="quantity-controls">
+                            <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
+                            <input type="number" id="quantity" class="quantity-input" min="1" value="1" required>
+                            <button type="button" class="quantity-btn" id="increaseBtn">＋</button>
+                        </div>
+                        <div class="total-display">
+                            總計：<span id="totalAmount">1</span> 包 (共 <span id="totalPieces">40</span> 顆美味 Dumplings)
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        確認訂購
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message">
+                    <h3 class="success-title">訂購成功！</h3>
+                    <p>感謝您選擇美水餃！我們已收到您的訂單，將在24小時內與您聯繫確認配送事宜。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="footer-logo-accent">LOGO</span>水餃 美味 DUMPLINGS
+            </div>
+            <div class="footer-info">
+                電話：0800-美味餃 | 信箱：hello@美水餃.com<br>
+                地址：台灣台北市○○區○○路○○號<br>
+                營業時間：週一至週日 09:00-18:00
+            </div>
+            <div class="footer-bottom">
+                Copyright © 2024 美水餃 美味 Dumplings. 版權所有.
+            </div>
+        </div>
+    </footer>
 
     <script>
         // 平滑滾動
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
@@ -670,11 +1148,11 @@
 
         quantityInput.addEventListener('input', updateTotal);
 
-        // 表單提交處理 - 整合 Google Sheets
+        // 表單提交處理
         document.getElementById('orderForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // 收集表單資料（總數、日期時間由伺服器端自動計算/產生）
+            // 收集表單資料
             const formData = {
                 店編: document.getElementById('storeCode').value,
                 店名: document.getElementById('storeName').value,
@@ -682,31 +1160,27 @@
                 訂購人姓名: document.getElementById('customerName').value,
                 訂購人聯絡電話: document.getElementById('customerPhone').value,
                 訂購數量: document.getElementById('quantity').value
-                // 訂購總數和時間由伺服器自動計算和產生
             };
 
             try {
                 // 顯示載入中
                 const submitBtn = document.querySelector('.submit-btn');
                 const originalText = submitBtn.textContent;
-                submitBtn.textContent = '提交中...';
+                submitBtn.textContent = '處理中...';
                 submitBtn.disabled = true;
                 
                 // 發送資料到 Google Apps Script
-                const scriptUrl = 'https://script.google.com/macros/s/AKfycbw6E14Tl1YkqNxETF31bkqM9DiZvdVzeGczDFyxLE_mU2iIuOH5_k9iGwZ6DvSa-0WkvA/exec';
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbzX5uz0_uqHYGVIbQUsCCxH_J4sgy_Z9Hv-IJ6npEhIhxQkA1Xr9Xv1l-DrO9Cn3rNfRQ/exec';
                 
                 const response = await fetch(scriptUrl, {
                     method: 'POST',
-                    mode: 'no-cors', // 重要：加入這行
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(formData)
                 });
 
-                // 由於使用 no-cors，我們假設成功
-                console.log('資料已送出:', formData);
-                
                 // 顯示成功訊息
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('successMessage').scrollIntoView({
@@ -727,9 +1201,8 @@
                 console.error('提交錯誤:', error);
                 alert('提交過程中發生錯誤，但資料可能已成功送出，請檢查您的 Google Sheet');
                 
-                // 重置按鈕
                 const submitBtn = document.querySelector('.submit-btn');
-                submitBtn.textContent = '🛒 確認訂購 - 立即下單';
+                submitBtn.textContent = '確認訂購';
                 submitBtn.disabled = false;
             }
         });
