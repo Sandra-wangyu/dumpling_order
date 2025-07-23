@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>美水餃 - Delicious Dumplings</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_icon.png">
     <style>
         * {
             margin: 0;
@@ -60,14 +61,19 @@
         .logo-badge {
             width: 50px;
             height: 50px;
-            background: #ff4500;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -137,39 +143,14 @@
             justify-content: center;
             position: relative;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            padding: 20px;
         }
 
-        .hero-badge::before,
-        .hero-badge::after {
-            content: 'LOGO';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #ff4500;
-            border-radius: 50%;
-            color: white;
-            font-size: 8px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-badge::before {
-            top: 10px;
-            left: 10px;
-        }
-
-        .hero-badge::after {
-            bottom: 10px;
-            right: 10px;
-        }
-
-        .hero-main-text {
-            font-size: 80px;
-            font-weight: 900;
-            color: #333;
-            line-height: 1;
+        .hero-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .hero-title {
@@ -216,17 +197,6 @@
         .hero-cta:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-        }
-
-        .hero-image-hint {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-size: 12px;
         }
 
         /* 產品專區 */
@@ -287,66 +257,14 @@
         .product-image {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, #ff4500, #ff6b35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .product-badge {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .product-badge::before,
-        .product-badge::after {
-            content: 'LOGO';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff4500;
-            border-radius: 50%;
-            color: white;
-            font-size: 6px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-badge::before {
-            top: 5px;
-            left: 15px;
-        }
-
-        .product-badge::after {
-            bottom: 5px;
-            right: 15px;
-        }
-
-        .product-main-icon {
-            font-size: 32px;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .product-note {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 11px;
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
@@ -423,42 +341,16 @@
         .story-image {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, #ff4500, #ff6b35);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             box-shadow: 0 20px 60px rgba(255, 69, 0, 0.3);
+            overflow: hidden;
         }
 
-        .story-badge {
-            width: 200px;
-            height: 200px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .story-main-text {
-            font-size: 48px;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .story-image-note {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 11px;
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .story-content {
@@ -786,6 +678,16 @@
             font-size: 28px;
             margin-bottom: 25px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
 
         .footer-logo-accent {
@@ -819,10 +721,6 @@
             .hero-badge {
                 width: 150px;
                 height: 150px;
-            }
-            
-            .hero-main-text {
-                font-size: 80px;
             }
             
             .story-container {
@@ -871,46 +769,38 @@
 <body>
     <!-- 頂部導航 -->
     <div class="top-nav">
-        🔥 每日新鮮製作 | 📦 全台配送到府 | ☎️ 客服專線：0800-美味餃 (0800-639-542)
+        - 每一顆美水餃，都很實在美味 -
     </div>
 
     <!-- 主導航 -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-badge">LOGO</div>
+                <div class="logo-badge">
+                    <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_0.png" alt="美水餃 Logo">
+                </div>
                 <span>美水餃</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">首頁</a></li>
-                <li><a href="#features">工藝</a></li>
+                <li><a href="#features">關於我們</a></li>
                 <li><a href="#product">商品</a></li>
                 <li><a href="#order">訂購</a></li>
-                <li><a href="#contact">聯絡</a></li>
             </ul>
-            <div class="nav-icons">
-                <span>🔍</span>
-                <span>👤</span>
-                <span>🛒</span>
-            </div>
         </div>
     </nav>
 
     <!-- 主視覺區域 -->
     <section id="home" class="hero-section">
-        <div class="hero-image-hint">
-            📸 上傳美食照片<br>
-            風格：大膽、現代、美味感
-        </div>
         <div class="hero-content">
             <div class="hero-badge">
-                <div class="hero-main-text">LOGO</div>
+                <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_0.png" alt="美水餃 Logo">
             </div>
             <h1 class="hero-title">美味 DUMPLINGS</h1>
-            <p class="hero-subtitle">皮彈餡鮮　每一顆都很實在美味</p>
+            <p class="hero-subtitle">皮彈餡鮮　每一顆美水餃，都很實在美味。</p>
             <p class="hero-description">
                 我們沒有華麗的包裝，只是認真把每一顆水餃做好。<br>
-                用最純粹的美味，創造最難忘的味蕾體驗。
+                一口咬下，你會說：「欸，這水餃有認真在做。」。
             </p>
             <a href="#order" class="hero-cta">立即訂購</a>
         </div>
@@ -921,26 +811,21 @@
         <div class="container">
             <div class="section-title">
                 <h2>招牌商品</h2>
-                <p class="en-title">頂級品質</p>
+                <p class="en-title">最優品質</p>
             </div>
             
             <div class="product-showcase">
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="product-badge">
-                            <div class="product-main-icon">LOGO</div>
-                        </div>
-                        <div class="product-note">
-                            美味-dumpling.jpg<br>400x300px
-                        </div>
+                        <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_dumplinf01.jpg" alt="韭菜豬肉水餃">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">韭菜豬肉水餃</h3>
                         <p class="product-en-name">豬肉韭菜 Dumplings</p>
-                        <p class="product-price">40顆/包</p>
+                        <p class="product-price">30顆/包</p>
                         <p class="product-desc">
-                            精選台灣豬前腿原塊肉，搭配新鮮當令韭菜<br>
-                            手工包製，皮薄餡多<br>
+                            選用台灣豬前腿原塊肉，搭配台灣新鮮當令韭菜<br>
+                            無須過度調味，呈現天然的爽口與香氣，<br>
                             每一口都是誠意十足的美滋味
                         </p>
                         <a href="#order" class="order-btn">立即訂購</a>
@@ -950,24 +835,18 @@
         </div>
     </section>
 
-    <!-- 品牌故事 -->
+    <!-- 關於我們 -->
     <section class="story-section">
         <div class="container">
             <div class="story-container">
                 <div class="story-image">
-                    <div class="story-badge">
-                        <div class="story-main-text">LOGO</div>
-                    </div>
-                    <div class="story-image-note">
-                        品牌故事.jpg<br>大膽現代風格
-                    </div>
+                    <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_dumpling02.jpg" alt="關於我們">
                 </div>
                 <div class="story-content">
-                    <h2 class="story-title">用心製作<br>熱情工藝</h2>
-                    <p class="story-subtitle">手工製作的卓越品質</p>
-                    <p class="story-text">
-                        「一口咬下，你會說：欸，這水餃有認真在做。」<br><br>
-                        
+                    <h2 class="story-title">回歸家常<br>食物本質的美味</h2>
+                    <p class="story-subtitle">我們沒有華麗的包裝，只是認真把每一顆水餃做好。<br>
+                                               一口咬下，你會說：「欸，這水餃有認真在做。」</p>
+                    <p class="story-text">                    
                         我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。從選材、製作到保存流程，皆以實在與透明為原則，呈上一顆「看得見真材實料，吃得出用心」的美水餃。
                     </p>
                     <a href="#" class="read-more">了解更多</a>
@@ -980,45 +859,54 @@
     <section id="features" class="features-section">
         <div class="container">
             <div class="section-title">
-                <h2>我們的工藝</h2>
-                <p class="en-title">四大原則</p>
+                <h2>成就美水餃</h2>
+                <p class="en-title">四大理念</p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-item">
                     <span class="feature-icon">🥩</span>
-                    <h3 class="feature-title">真材實料，誠意十足的實在美</h3>
-                    <p class="feature-description">
-                        我們選用台灣豬前腿原塊肉，拒絕混充來源不明的碎絞肉，確保內餡單一來源；
-                        搭配新鮮當令台灣韭菜，無須過度調味，呈現天然的爽口與香氣，誠意十足的美滋味！
-                    </p>
+                    <div class="feature-content">
+                        <h3 class="feature-title">真材實料，誠意十足的實在美</h3>
+                        <p class="feature-description">
+                            我們選用台灣豬前腿原塊肉，拒絕混充來源不明的碎絞肉，確保內餡單一來源；
+                            搭配新鮮當令台灣韭菜，無須過度調味，呈現天然的爽口與香氣，誠意十足的美滋味！
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="feature-item">
                     <span class="feature-icon">👨‍🍳</span>
-                    <h3 class="feature-title">家傳功夫，每個細節的講究美</h3>
-                    <p class="feature-description">
-                        我們反覆測試麵粉比例與風味組合，只為重現記憶中的家常味。
-                        選用兩種以上麵粉調配，打造皮薄不破、Q彈不爛的理想口感；
+                    <div class="feature-content">
+                        <h3 class="feature-title">家傳功夫，每個細節的講究美</h3>
+                        <p class="feature-description">
+                            我們反覆測試麵粉比例與風味組合，只為重現記憶中的家常味。
+                            選用兩種以上麵粉調配，打造皮薄不破、Q彈不爛的理想口感；
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="feature-item">
                     <span class="feature-icon">❄️</span>
-                    <h3 class="feature-title">急速凍鮮，鎖住鮮度的安心美</h3>
-                    <p class="feature-description">
-                        採用「-18°C 急速冷凍技術」，包製完成後快速入庫降溫，封存餃子原始的鮮甜與水分，
-                        有效降低冰晶生成，保持皮的彈性與內餡鮮度；與一般手工水餃相比更乾淨衛生、更耐存放、更穩定。
-                    </p>
+                    <div class="feature-content">
+                        <h3 class="feature-title">急速凍鮮，鎖住鮮度的安心美</h3>
+                        <p class="feature-description">
+                            採用「-18°C 急速冷凍技術」，包製完成後快速入庫降溫，封存餃子原始的鮮甜與水分，
+                            有效降低冰晶生成，保持皮的彈性與內餡鮮度；與一般手工水餃相比更乾淨衛生、更耐存放、更穩定。
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="feature-item">
                     <span class="feature-icon">🏠</span>
-                    <h3 class="feature-title">回歸家常，食物本質的美味</h3>
-                    <p class="feature-description">
-                        我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。
-                        從選材、製作到保存流程，皆以實在與透明為原則，
-                        呈上一顆「看得見真材實料，吃得出用心」的美水餃。
-                    </p>
+                    <div class="feature-content">
+                        <h3 class="feature-title">回歸家常，食物本質的美味</h3>
+                        <p class="feature-description">
+                            我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。
+                            從選材、製作到保存流程，皆以實在與透明為原則，
+                            呈上一顆「看得見真材實料，吃得出用心」的美水餃。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1063,7 +951,7 @@
 
                     <div class="quantity-section">
                         <h3 class="quantity-title">豬肉韭菜 Dumplings</h3>
-                        <p class="quantity-subtitle">40顆/包 | 頂級品質</p>
+                        <p class="quantity-subtitle">30顆/包 | 最優品質</p>
                         <div class="quantity-controls">
                             <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
                             <input type="number" id="quantity" class="quantity-input" min="1" value="1" required>
@@ -1091,7 +979,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <span class="footer-logo-accent">LOGO</span>水餃 美味 DUMPLINGS
+                <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_0.png" alt="美水餃 Logo">
+                <span>美水餃 美味 DUMPLINGS</span>
             </div>
             <div class="footer-info">
                 電話：0800-美味餃 | 信箱：hello@美水餃.com<br>
@@ -1099,7 +988,7 @@
                 營業時間：週一至週日 09:00-18:00
             </div>
             <div class="footer-bottom">
-                Copyright © 2024 美水餃 美味 Dumplings. 版權所有.
+                Copyright © 2025 美水餃 Mei Dumplings. 版權所有.
             </div>
         </div>
     </footer>
