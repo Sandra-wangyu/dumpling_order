@@ -105,7 +105,12 @@
 
         /* 主視覺區域 - 橘紅風格 */
         .hero-section {
-            background: linear-gradient(135deg, #ff4500 0%, #ff6b35 100%);
+            background: 
+                linear-gradient(135deg, rgba(255,69,0,0.85) 0%, rgba(255,107,53,0.85) 100%),
+                url('https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_dumplinf01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
             padding: 100px 0;
             text-align: center;
@@ -133,18 +138,18 @@
         }
 
         .hero-badge {
-            width: 200px;
-            height: 200px;
-            background: white;
-            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            background: transparent;
+            border-radius: 0;
             margin: 0 auto 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: none;
             overflow: hidden;
-            padding: 20px;
+            padding: 0;
         }
 
         .hero-badge img {
@@ -323,6 +328,29 @@
             background: #e63e00;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+        }
+
+        /* 烹調方式區塊 */
+        .cooking-section {
+            padding: 100px 0;
+            background: #fff8f0;
+        }
+
+        .cooking-image-placeholder {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border-radius: 20px;
+        }
+
+        .cooking-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
         }
 
         /* 品牌故事 */
@@ -719,8 +747,12 @@
             }
             
             .hero-badge {
-                width: 150px;
-                height: 150px;
+                width: 400px;
+                height: 400px;
+            }
+
+            .cooking-image-placeholder {
+                margin: 0 20px;
             }
             
             .story-container {
@@ -769,12 +801,12 @@
 <body>
     <!-- 頂部導航 -->
     <div class="top-nav">
-        - 每一顆美水餃，都很實在美味 -
+        🔥 每日新鮮製作 | 📦 全台配送到府 | ☎️ 客服專線：0800-美味餃 (0800-639-542)
     </div>
 
     <!-- 主導航 -->
     <nav class="navbar">
-        <div class="nav-container">
+                    <div class="nav-container">
             <a href="#" class="logo">
                 <div class="logo-badge">
                     <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_0.png" alt="美水餃 Logo">
@@ -783,9 +815,11 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">首頁</a></li>
-                <li><a href="#features">關於我們</a></li>
+                <li><a href="#cooking">烹調</a></li>
+                <li><a href="#features">工藝</a></li>
                 <li><a href="#product">商品</a></li>
                 <li><a href="#order">訂購</a></li>
+                <li><a href="#contact">聯絡</a></li>
             </ul>
         </div>
     </nav>
@@ -794,13 +828,13 @@
     <section id="home" class="hero-section">
         <div class="hero-content">
             <div class="hero-badge">
-                <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_0.png" alt="美水餃 Logo">
+                <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_logo_1.png" alt="美水餃 Logo">
             </div>
             <h1 class="hero-title">美味 DUMPLINGS</h1>
-            <p class="hero-subtitle">皮彈餡鮮　每一顆美水餃，都很實在美味。</p>
+            <p class="hero-subtitle">皮彈餡鮮　每一顆都很實在美味</p>
             <p class="hero-description">
                 我們沒有華麗的包裝，只是認真把每一顆水餃做好。<br>
-                一口咬下，你會說：「欸，這水餃有認真在做。」。
+                用最純粹的美味，創造最難忘的味蕾體驗。
             </p>
             <a href="#order" class="hero-cta">立即訂購</a>
         </div>
@@ -811,7 +845,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>招牌商品</h2>
-                <p class="en-title">最優品質</p>
+                <p class="en-title">頂級品質</p>
             </div>
             
             <div class="product-showcase">
@@ -822,10 +856,10 @@
                     <div class="product-info">
                         <h3 class="product-name">韭菜豬肉水餃</h3>
                         <p class="product-en-name">豬肉韭菜 Dumplings</p>
-                        <p class="product-price">30顆/包</p>
+                        <p class="product-price">40顆/包</p>
                         <p class="product-desc">
-                            選用台灣豬前腿原塊肉，搭配台灣新鮮當令韭菜<br>
-                            無須過度調味，呈現天然的爽口與香氣，<br>
+                            精選台灣豬前腿原塊肉，搭配新鮮當令韭菜<br>
+                            手工包製，皮薄餡多<br>
                             每一口都是誠意十足的美滋味
                         </p>
                         <a href="#order" class="order-btn">立即訂購</a>
@@ -835,18 +869,40 @@
         </div>
     </section>
 
-    <!-- 關於我們 -->
+    <!-- 烹調方式 -->
+    <section id="cooking" class="cooking-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>烹調方式</h2>
+                <p class="en-title">三種經典作法</p>
+            </div>
+            
+            <div class="cooking-grid">
+                <div class="cooking-method">
+                    <div class="cooking-icon">🍲</div>
+                    <h3 class="cooking-title">懶人水煮法</h3>
+                    <div class="cooking-steps">
+                        盤子放置蒸籠紙，並取出冷凍水餃置於盤中，於電鍋中注入適當水量（約200c.c），蒸炊約15-20分鐘後即可取出食用。
+                    </div>
+                    <div class="cooking-time">全程約 15～20分鐘</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌故事 -->
     <section class="story-section">
         <div class="container">
             <div class="story-container">
                 <div class="story-image">
-                    <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_dumpling02.jpg" alt="關於我們">
+                    <img src="https://raw.githubusercontent.com/Sandra-wangyu/dumpling_order/main/mei_dumpling02.jpg" alt="品牌故事">
                 </div>
                 <div class="story-content">
-                    <h2 class="story-title">回歸家常<br>食物本質的美味</h2>
-                    <p class="story-subtitle">我們沒有華麗的包裝，只是認真把每一顆水餃做好。<br>
-                                               一口咬下，你會說：「欸，這水餃有認真在做。」</p>
-                    <p class="story-text">                    
+                    <h2 class="story-title">用心製作<br>熱情工藝</h2>
+                    <p class="story-subtitle">手工製作的卓越品質</p>
+                    <p class="story-text">
+                        「一口咬下，你會說：欸，這水餃有認真在做。」<br><br>
+                        
                         我們不追求浮誇包裝，也不刻意強調噱頭，而是選擇將成本回饋於產品本身。從選材、製作到保存流程，皆以實在與透明為原則，呈上一顆「看得見真材實料，吃得出用心」的美水餃。
                     </p>
                     <a href="#" class="read-more">了解更多</a>
@@ -859,8 +915,8 @@
     <section id="features" class="features-section">
         <div class="container">
             <div class="section-title">
-                <h2>成就美水餃</h2>
-                <p class="en-title">四大理念</p>
+                <h2>我們的工藝</h2>
+                <p class="en-title">四大原則</p>
             </div>
             
             <div class="features-grid">
@@ -951,14 +1007,15 @@
 
                     <div class="quantity-section">
                         <h3 class="quantity-title">豬肉韭菜 Dumplings</h3>
-                        <p class="quantity-subtitle">30顆/包 | 最優品質</p>
+                        <p class="quantity-subtitle">40顆/包 | 單價：NT$ <span id="unitPrice">150</span></p>
                         <div class="quantity-controls">
                             <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
                             <input type="number" id="quantity" class="quantity-input" min="1" value="1" required>
                             <button type="button" class="quantity-btn" id="increaseBtn">＋</button>
                         </div>
                         <div class="total-display">
-                            總計：<span id="totalAmount">1</span> 包 (共 <span id="totalPieces">40</span> 顆美味 Dumplings)
+                            總計：<span id="totalAmount">1</span> 包 (共 <span id="totalPieces">40</span> 顆美味 Dumplings)<br>
+                            <strong>訂購金額：NT$ <span id="totalPrice">150</span></strong>
                         </div>
                     </div>
 
@@ -988,7 +1045,7 @@
                 營業時間：週一至週日 09:00-18:00
             </div>
             <div class="footer-bottom">
-                Copyright © 2025 美水餃 Mei Dumplings. 版權所有.
+                Copyright © 2024 美水餃 美味 Dumplings. 版權所有.
             </div>
         </div>
     </footer>
@@ -1017,8 +1074,12 @@
 
         function updateTotal() {
             const quantity = parseInt(quantityInput.value) || 1;
+            const unitPrice = parseInt(document.getElementById('unitPrice').textContent) || 150;
+            const totalPrice = quantity * unitPrice;
+            
             totalAmount.textContent = quantity;
             totalPieces.textContent = quantity * 40;
+            document.getElementById('totalPrice').textContent = totalPrice;
         }
 
         decreaseBtn.addEventListener('click', () => {
@@ -1048,7 +1109,10 @@
                 區域: document.getElementById('region').value,
                 訂購人姓名: document.getElementById('customerName').value,
                 訂購人聯絡電話: document.getElementById('customerPhone').value,
-                訂購數量: document.getElementById('quantity').value
+                訂購數量: document.getElementById('quantity').value,
+                單價: document.getElementById('unitPrice').textContent,
+                訂購金額: document.getElementById('totalPrice').textContent,
+                訂購時間: new Date().toLocaleString('zh-TW')
             };
 
             try {
@@ -1107,3 +1171,21 @@
     </script>
 </body>
 </html>
+                        水煮滾後加入冷凍水餃，並用鍋鏟輕推動水餃，避免黏鍋，待第二次煮滾後再加半碗冷水，待第三次煮滾浮起即可食用。
+                    </div>
+                    <div class="cooking-time">全程約 5～7分鐘</div>
+                </div>
+
+                <div class="cooking-method">
+                    <div class="cooking-icon">🍳</div>
+                    <h3 class="cooking-title">日式煎餃法</h3>
+                    <div class="cooking-steps">
+                        倒入少許油熱鍋後，一個個放入冷凍水餃再加入約50c.c熱水，加蓋中小火悶煮5-6分鐘後，開蓋讓水分蒸發並於起鍋前淋上少許芝麻油，即可上桌。
+                    </div>
+                    <div class="cooking-time">全程約 8～10分鐘</div>
+                </div>
+
+                <div class="cooking-method">
+                    <div class="cooking-icon">🔥</div>
+                    <h3 class="cooking-title">台式蒸炊法</h3>
+                    <div class="cooking-steps">
